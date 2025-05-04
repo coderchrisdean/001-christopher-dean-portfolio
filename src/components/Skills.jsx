@@ -17,13 +17,13 @@ const Skills = () => {
   const itemColor = useColorModeValue("gray.600", "gray.300");
 
   return (
-    <Box id="skills" py={16} bg={bgColor} borderRadius="lg" borderWidth={1} borderColor={borderColor} boxShadow="md" px={{ base: 4, md: 8 }}>
+    <Box id="skills" py={16} bg={bgColor} borderRadius="lg" borderWidth={1} borderColor={borderColor} boxShadow="md" px={{ base: 4, md: 8 }} my={8}>
       <Text fontSize="3xl" fontWeight="bold" mb={8} textAlign="center" color={headingColor}>
         Skills & Expertise
       </Text>
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
         {skillsData.map((skill, index) => (
-          <VStack key={index} align="start" spacing={3} p={4} bg={useColorModeValue("gray.50", "gray.700")} borderRadius="md" borderWidth={1} borderColor={borderColor}>
+          <VStack key={index} align="start" spacing={3} p={4} bg={useColorModeValue("gray.50", "gray.700")} borderRadius="md" borderWidth={1} borderColor={borderColor} boxShadow="sm" h="full">
             <Icon as={skill.icon} boxSize={6} color={headingColor} />
             <Text fontSize="xl" fontWeight="semibold" color={categoryColor}>{skill.category}</Text>
             <VStack align="start" spacing={1}>
