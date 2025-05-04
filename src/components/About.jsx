@@ -1,41 +1,41 @@
 import React from "react";
-import { Box, Heading, Text, Stack, Button, Flex, useColorModeValue, keyframes } from "@chakra-ui/react";
-
-const fadeInUp = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-`;
+import { Box, Heading, Text, Button, VStack, useColorModeValue, Icon, HStack } from "@chakra-ui/react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const About = () => {
   const bgColor = useColorModeValue("white", "gray.800");
-  const borderColor = useColorModeValue("gray.200", "gray.700");
+  const textColor = useColorModeValue("gray.700", "gray.300");
   const headingColor = useColorModeValue("teal.600", "teal.300");
-  const textColor = useColorModeValue("gray.600", "gray.300");
-  const buttonBgColor = useColorModeValue("teal.500", "teal.400");
-  const buttonHoverBgColor = useColorModeValue("teal.600", "teal.500");
-  const buttonTextColor = useColorModeValue("white", "white");
+  const btnBgColor = useColorModeValue("teal.500", "teal.400");
+  const btnHoverBgColor = useColorModeValue("teal.600", "teal.500");
 
   return (
-    <Box id="about" py={20} px={4} bg={bgColor} borderRadius="lg" borderWidth={1} borderColor={borderColor} boxShadow="xl" animation={`${fadeInUp} 0.8s ease-out`}>
-      <Flex direction={{ base: "column", md: "row" }} align="center" maxW="container.lg" mx="auto">
-        <Stack spacing={6} flex={1} textAlign={{ base: "center", md: "left" }}>
-          <Heading as="h1" size="2xl" color={headingColor} fontFamily="'Poppins', sans-serif" animation={`${fadeInUp} 0.6s ease-out`}>
-            <span style={{ color: headingColor }}>Hi,</span> <span style={{ color: headingColor }}>I'm</span> <span style={{ color: headingColor }}>Christopher</span> <span style={{ color: headingColor }}>Dean</span>
-          </Heading>
-          <Heading as="h2" size="xl" color={headingColor} fontFamily="'Poppins', sans-serif" animation={`${fadeInUp} 0.7s ease-out`}>Full Stack Developer</Heading>
-          <Text fontSize="lg" color={textColor} maxW="600px" animation={`${fadeInUp} 0.8s ease-out`} fontFamily="'Poppins', sans-serif">I'm passionate about crafting beautiful and functional web applications. With expertise in both front-end and back-end technologies, I bring ideas to life with clean code and thoughtful design.</Text>
-          <Flex justify="center" animation={`${fadeInUp} 0.9s ease-out`}>
-            <Button colorScheme="teal" size="lg" borderRadius="full" px={8} fontFamily="'Poppins', sans-serif" bg={buttonBgColor} _hover={{ bg: buttonHoverBgColor }} color={buttonTextColor}>Get In Touch</Button>
-          </Flex>
-        </Stack>
-        <Box flex={1} mt={{ base: 10, md: 0 }} animation={`${fadeInUp} 1s ease-out`}>
-          <Box maxW="400px" mx="auto" borderRadius="2xl" overflow="hidden" boxShadow="2xl" border="4px solid" borderColor={borderColor} bg="gray.200">
-            <Box h="400px" bg="gray.300" position="relative" overflow="hidden">
-              <Box position="absolute" bottom={0} left={0} right={0} h="50%" bgGradient={useColorModeValue("linear(to-t, teal.500, purple.500, blue.500)", "linear(to-t, teal.700, purple.700, blue.700)")} />
-            </Box>
-          </Box>
-        </Box>
-      </Flex>
+    <Box id="about" py={16} px={{ base: 4, md: 8 }} bg={bgColor} borderRadius="lg" boxShadow="md">
+      <VStack spacing={6} align="center" maxW="container.md" mx="auto">
+        <Heading as="h1" size="2xl" textAlign="center" color={headingColor}>
+          Hi, I'm Christopher Dean
+        </Heading>
+        <Heading as="h2" size="lg" textAlign="center" color={headingColor}>
+          Full Stack Developer
+        </Heading>
+        <Text fontSize="lg" textAlign="center" color={textColor} maxW="600px">
+          I'm passionate about crafting beautiful and functional web applications. With expertise in both front-end and back-end technologies, I bring ideas to life with clean code and thoughtful design.
+        </Text>
+        <HStack spacing={4} justify="center">
+          <Button as="a" href="https://github.com/coderchrisdean" target="_blank" rel="noopener noreferrer" leftIcon={<Icon as={FaGithub} />} bg={btnBgColor} color="white" _hover={{ bg: btnHoverBgColor }} borderRadius="full" px={6}>
+            GitHub
+          </Button>
+          <Button as="a" href="https://linkedin.com/in/coderchrisdean" target="_blank" rel="noopener noreferrer" leftIcon={<Icon as={FaLinkedin} />} bg={btnBgColor} color="white" _hover={{ bg: btnHoverBgColor }} borderRadius="full" px={6}>
+            LinkedIn
+          </Button>
+          <Button as="a" href="mailto:coderchrisdean@gmail.com" leftIcon={<Icon as={FaEnvelope} />} bg={btnBgColor} color="white" _hover={{ bg: btnHoverBgColor }} borderRadius="full" px={6}>
+            Email
+          </Button>
+        </HStack>
+        <Button as="a" href="#contact" colorScheme="teal" size="lg" borderRadius="full" px={8} py={6} fontSize="lg" fontWeight="bold" _hover={{ transform: "translateY(-2px)", boxShadow: "md" }}>
+          Get In Touch
+        </Button>
+      </VStack>
     </Box>
   );
 };
