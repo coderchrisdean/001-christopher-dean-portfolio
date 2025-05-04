@@ -14,11 +14,11 @@ const SkillCard = ({ title, description, icon, iconColor }) => {
 
   return (
     <Card bg={bgColor} borderRadius="xl" boxShadow="xl" transition="transform 0.3s ease, box-shadow 0.3s ease" _hover={{ transform: "translateY(-10px)", boxShadow: "2xl" }} h="100%">
-      <CardBody p={6}>
-        <Stack spacing={4} align="center" textAlign="center" h="100%" justifyContent="center">
-          <Icon as={icon} boxSize={12} color={iconColor} />
+      <CardBody p={{ base: 4, md: 6 }}>
+        <Stack spacing={{ base: 2, md: 4 }} align="center" textAlign="center" h="100%" justifyContent="center">
+          <Icon as={icon} boxSize={{ base: 8, md: 12 }} color={iconColor} />
           <Heading size="md" color={titleColor} fontFamily="'Poppins', sans-serif">{title}</Heading>
-          <Text color={textColor} fontSize="sm" fontFamily="'Poppins', sans-serif">{description}</Text>
+          <Text color={textColor} fontSize={{ base: "xs", md: "sm" }} fontFamily="'Poppins', sans-serif">{description}</Text>
         </Stack>
       </CardBody>
     </Card>
@@ -36,9 +36,9 @@ const Skills = () => {
   ];
 
   return (
-    <Box id="skills" py={20} px={4} bg={bgColor} borderRadius="lg" boxShadow="xl" animation={`${fadeInUp} 0.8s ease-out`}>
-      <Heading as="h2" size="xl" textAlign="center" mb={10} color={headingColor} fontFamily="'Poppins', sans-serif">My Skills</Heading>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6} maxW="container.lg" mx="auto">
+    <Box id="skills" py={{ base: 10, md: 20 }} px={{ base: 2, md: 4 }} bg={bgColor} borderRadius="lg" boxShadow="xl" animation={`${fadeInUp} 0.8s ease-out`}>
+      <Heading as="h2" size={{ base: "lg", md: "xl" }} textAlign="center" mb={{ base: 6, md: 10 }} color={headingColor} fontFamily="'Poppins', sans-serif">My Skills</Heading>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 2, lg: 4 }} spacing={{ base: 3, md: 6 }} maxW="container.lg" mx="auto">
         <SkillCard title="Frontend Development" description="Expertise in React, Vue, HTML5, CSS3, and modern JavaScript frameworks with a focus on responsive design." icon={FaCode} iconColor={iconColors[0]} />
         <SkillCard title="Backend Development" description="Strong skills in Node.js, Express, Python, and RESTful API design for robust server-side applications." icon={FaDatabase} iconColor={iconColors[1]} />
         <SkillCard title="Cloud Technologies" description="Experience with AWS, Azure, and Google Cloud for deployment, scaling, and managing applications." icon={FaCloud} iconColor={iconColors[2]} />
