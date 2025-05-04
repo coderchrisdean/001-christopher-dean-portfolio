@@ -19,9 +19,9 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <Box minH="100vh" bgGradient={bgGradient} overflowX="hidden" display="flex" flexDirection="column">
+      <Box minH="100vh" bgGradient={bgGradient} overflowX="hidden" display="flex" flexDirection="column" width="100vw">
         <Navbar />
-        <Container maxW="container.lg" py={10} px={{ base: 4, md: 0 }}>
+        <Container maxW={{ base: 'container.sm', md: 'container.lg' }} py={10} px={{ base: 4, md: 0 }}>
           <VStack spacing={20} align="stretch">
             <About />
             <Skills />
